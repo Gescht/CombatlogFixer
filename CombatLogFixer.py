@@ -37,9 +37,13 @@ def guidShouldBeChanged(listLines,index):
 
 with open(oldFileName) as old, open(newFileName, 'w') as new:
     for line in old:
-        line = line.split(",", 5)
+        line = line.split(",", 12)
         if guidShouldBeChanged(line,1):
              line[1] = "0x0000" + line[1][6:]
         if guidShouldBeChanged(line,5):
              line[5] = "0x0000" + line[5][6:]
+        if guidShouldBeChanged(line,9):
+             line[9] = "0x0000" + line[9][6:]
+        if guidShouldBeChanged(line,12):
+             line[12] = "0x0000" + line[12][6:]
         new.write(",".join(str(s) for s in line))
