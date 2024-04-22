@@ -2,9 +2,6 @@ import sys
 import os
 import tkinter as tk
 from tkinter import filedialog
-import time
-
-start = time.time()
 
 root = tk.Tk()
 root.withdraw()
@@ -41,8 +38,3 @@ with open(oldFileName, encoding="utf-8", errors='ignore') as old, open(newFileNa
             if guidShouldBeChanged(element):
                 line[index] = "0x0000" + line[index][6:]
         new.write(",".join(str(s) for s in line))
-
-
-end = time.time() - start
-print(end, " seconds")
-input()
